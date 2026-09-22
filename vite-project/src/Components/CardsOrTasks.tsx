@@ -8,9 +8,10 @@ interface CardsProps {
 
 export function Cards({ id, title, description }: CardsProps) {
     // Connect this component to the react-dnd dragging system
+    //useDrag is a hook in react-dnd lib or statevar and dragRef is called on the item which is beig dragged
     const [{ isDragging }, dragRef] = useDrag(() => ({
         type: "CARD", // A unique string identifier for this draggable item type
-        item: { id, title }, // The data passed along when dragging begins
+        item: { id, title , description}, // The data passed along when dragging begins
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging(), // Dynamically track if this specific card is being dragged
         }),
